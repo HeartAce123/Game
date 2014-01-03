@@ -22,6 +22,12 @@
 		9E586D6918773A6E0073ECE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E586D4D18773A6E0073ECE7 /* CoreData.framework */; };
 		9E586D7118773A6E0073ECE7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E586D6F18773A6E0073ECE7 /* InfoPlist.strings */; };
 		9E586D7318773A6E0073ECE7 /* GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D7218773A6E0073ECE7 /* GameTests.m */; };
+		9E586D8118773AB50073ECE7 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8018773AB50073ECE7 /* MZTimerLabel.m */; };
+		9E586D8318773AC30073ECE7 /* testImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E586D8218773AC30073ECE7 /* testImg.jpg */; };
+		9E586D8818773ADC0073ECE7 /* PictureBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8518773ADC0073ECE7 /* PictureBoard.m */; };
+		9E586D8918773ADC0073ECE7 /* PictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8718773ADC0073ECE7 /* PictureCell.m */; };
+		9E586D8D18773AF00073ECE7 /* StartScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8B18773AF00073ECE7 /* StartScreen.m */; };
+		9E586D8E18773AF00073ECE7 /* StartScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E586D8C18773AF00073ECE7 /* StartScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,16 @@
 		9E586D6E18773A6E0073ECE7 /* GameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GameTests-Info.plist"; sourceTree = "<group>"; };
 		9E586D7018773A6E0073ECE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E586D7218773A6E0073ECE7 /* GameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameTests.m; sourceTree = "<group>"; };
+		9E586D7F18773AB50073ECE7 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		9E586D8018773AB50073ECE7 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
+		9E586D8218773AC30073ECE7 /* testImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImg.jpg; sourceTree = "<group>"; };
+		9E586D8418773ADC0073ECE7 /* PictureBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureBoard.h; sourceTree = "<group>"; };
+		9E586D8518773ADC0073ECE7 /* PictureBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureBoard.m; sourceTree = "<group>"; };
+		9E586D8618773ADC0073ECE7 /* PictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCell.h; sourceTree = "<group>"; };
+		9E586D8718773ADC0073ECE7 /* PictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCell.m; sourceTree = "<group>"; };
+		9E586D8A18773AF00073ECE7 /* StartScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScreen.h; sourceTree = "<group>"; };
+		9E586D8B18773AF00073ECE7 /* StartScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScreen.m; sourceTree = "<group>"; };
+		9E586D8C18773AF00073ECE7 /* StartScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,12 @@
 		9E586D4F18773A6E0073ECE7 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				9E586D8A18773AF00073ECE7 /* StartScreen.h */,
+				9E586D8B18773AF00073ECE7 /* StartScreen.m */,
+				9E586D8C18773AF00073ECE7 /* StartScreen.xib */,
+				9E586D7E18773A8F0073ECE7 /* PicturePuzzle */,
+				9E586D7D18773A850073ECE7 /* TestImg */,
+				9E586D7C18773A790073ECE7 /* Third Parties */,
 				9E586D5818773A6E0073ECE7 /* AppDelegate.h */,
 				9E586D5918773A6E0073ECE7 /* AppDelegate.m */,
 				9E586D5E18773A6E0073ECE7 /* Images.xcassets */,
@@ -151,6 +173,34 @@
 				9E586D6F18773A6E0073ECE7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E586D7C18773A790073ECE7 /* Third Parties */ = {
+			isa = PBXGroup;
+			children = (
+				9E586D7F18773AB50073ECE7 /* MZTimerLabel.h */,
+				9E586D8018773AB50073ECE7 /* MZTimerLabel.m */,
+			);
+			name = "Third Parties";
+			sourceTree = "<group>";
+		};
+		9E586D7D18773A850073ECE7 /* TestImg */ = {
+			isa = PBXGroup;
+			children = (
+				9E586D8218773AC30073ECE7 /* testImg.jpg */,
+			);
+			name = TestImg;
+			sourceTree = "<group>";
+		};
+		9E586D7E18773A8F0073ECE7 /* PicturePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				9E586D8418773ADC0073ECE7 /* PictureBoard.h */,
+				9E586D8518773ADC0073ECE7 /* PictureBoard.m */,
+				9E586D8618773ADC0073ECE7 /* PictureCell.h */,
+				9E586D8718773ADC0073ECE7 /* PictureCell.m */,
+			);
+			name = PicturePuzzle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +278,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E586D8318773AC30073ECE7 /* testImg.jpg in Resources */,
 				9E586D5418773A6E0073ECE7 /* InfoPlist.strings in Resources */,
+				9E586D8E18773AF00073ECE7 /* StartScreen.xib in Resources */,
 				9E586D5F18773A6E0073ECE7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,8 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E586D8918773ADC0073ECE7 /* PictureCell.m in Sources */,
 				9E586D5A18773A6E0073ECE7 /* AppDelegate.m in Sources */,
+				9E586D8818773ADC0073ECE7 /* PictureBoard.m in Sources */,
+				9E586D8118773AB50073ECE7 /* MZTimerLabel.m in Sources */,
 				9E586D5D18773A6E0073ECE7 /* Game.xcdatamodeld in Sources */,
+				9E586D8D18773AF00073ECE7 /* StartScreen.m in Sources */,
 				9E586D5618773A6E0073ECE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
