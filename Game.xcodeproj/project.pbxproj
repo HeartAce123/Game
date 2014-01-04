@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0B844C187797EC00E79E0D /* PictureHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0B844B187797EC00E79E0D /* PictureHandler.m */; };
 		9E586D4818773A6E0073ECE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E586D4718773A6E0073ECE7 /* Foundation.framework */; };
 		9E586D4A18773A6E0073ECE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E586D4918773A6E0073ECE7 /* CoreGraphics.framework */; };
 		9E586D4C18773A6E0073ECE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E586D4B18773A6E0073ECE7 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E0B844A187797EC00E79E0D /* PictureHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureHandler.h; sourceTree = "<group>"; };
+		9E0B844B187797EC00E79E0D /* PictureHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureHandler.m; sourceTree = "<group>"; };
 		9E586D4418773A6E0073ECE7 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E586D4718773A6E0073ECE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9E586D4918773A6E0073ECE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,9 +134,6 @@
 		9E586D4F18773A6E0073ECE7 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				9E586D8A18773AF00073ECE7 /* StartScreen.h */,
-				9E586D8B18773AF00073ECE7 /* StartScreen.m */,
-				9E586D8C18773AF00073ECE7 /* StartScreen.xib */,
 				9E586D7E18773A8F0073ECE7 /* PicturePuzzle */,
 				9E586D7D18773A850073ECE7 /* TestImg */,
 				9E586D7C18773A790073ECE7 /* Third Parties */,
@@ -195,10 +195,15 @@
 		9E586D7E18773A8F0073ECE7 /* PicturePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				9E586D8C18773AF00073ECE7 /* StartScreen.xib */,
+				9E586D8B18773AF00073ECE7 /* StartScreen.m */,
+				9E586D8A18773AF00073ECE7 /* StartScreen.h */,
 				9E586D8418773ADC0073ECE7 /* PictureBoard.h */,
 				9E586D8518773ADC0073ECE7 /* PictureBoard.m */,
 				9E586D8618773ADC0073ECE7 /* PictureCell.h */,
 				9E586D8718773ADC0073ECE7 /* PictureCell.m */,
+				9E0B844A187797EC00E79E0D /* PictureHandler.h */,
+				9E0B844B187797EC00E79E0D /* PictureHandler.m */,
 			);
 			name = PicturePuzzle;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				9E586D8818773ADC0073ECE7 /* PictureBoard.m in Sources */,
 				9E586D8118773AB50073ECE7 /* MZTimerLabel.m in Sources */,
 				9E586D5D18773A6E0073ECE7 /* Game.xcdatamodeld in Sources */,
+				9E0B844C187797EC00E79E0D /* PictureHandler.m in Sources */,
 				9E586D8D18773AF00073ECE7 /* StartScreen.m in Sources */,
 				9E586D5618773A6E0073ECE7 /* main.m in Sources */,
 			);
@@ -507,6 +513,7 @@
 				9E586D7818773A6E0073ECE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E586D7918773A6E0073ECE7 /* Build configuration list for PBXNativeTarget "GameTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +522,7 @@
 				9E586D7B18773A6E0073ECE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

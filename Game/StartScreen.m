@@ -8,6 +8,8 @@
 
 #import "StartScreen.h"
 #import "PictureBoard.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "PictureHandler.h"
 @interface StartScreen ()
 
 @end
@@ -15,6 +17,8 @@
 @implementation StartScreen
 UIButton* start;
 UIButton* level;
+UIButton* chooser;
+UIImageView* imgview;
 int lvl = 1;
 bool isIntialize = false;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,22 +42,29 @@ bool isIntialize = false;
     start.tag = 0;
     level = [[UIButton alloc] initWithFrame:CGRectMake(170, 450, 150, 30)];
     level.tag = 1;
-    //[start setBackgroundImage:[UIImage imageNamed:@"StartButton.PNG"] forState:UIControlStateNormal];
+    chooser = [[UIButton alloc] initWithFrame:CGRectMake(10, 480, 170, 30)];
+    chooser.tag = 2;
+    imgview = [[UIImageView alloc] initWithFrame:CGRectMake(180, 480, 50, 50)];
+    imgview.image = [PictureHandler gamePictureByImageOrDefault:nil];
     [start setTitle:@"New Game" forState:UIControlStateNormal];
     [start setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level setTitle:@"Level: Normal" forState:UIControlStateNormal];
     [level setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [chooser setTitle:@"Choose picture" forState:UIControlStateNormal];
+    [chooser setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [chooser setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [start addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [chooser addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:start];
     [self.view addSubview:level];
+    [self.view addSubview:chooser];
+    [self.view addSubview:imgview];
 }
 -(void) buttonClick: (id)sender
 {
-//    [start removeFromSuperview];
-//    [level removeFromSuperview];
     UIButton* button = (UIButton*) sender;
     switch(button.tag)
     {
@@ -80,29 +91,54 @@ bool isIntialize = false;
         }
         case 1:
         {
+            lvl++;
+            lvl = lvl % 3;
             switch (lvl)
             {
-                case 0:
+                case 1:
                 {
                     [button setTitle:@"Level: Normal" forState:UIControlStateNormal];
                     break;
                 }
-                case 1:
+                case 2:
                 {
                     [button setTitle:@"Level: Hard" forState:UIControlStateNormal];
                     break;
                 }
-                case 2:
+                case 0:
                 {
                     [button setTitle:@"Level: Easy" forState:UIControlStateNormal];
                     break;
                 }
             }
-            lvl++;
-            lvl = lvl % 3;
+            break;
+        }
+        case 2:
+        {
+            UIImagePickerController* pickerController = [[UIImagePickerController alloc] init];
+            pickerController.delegate = self;
+            pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            pickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString*) kUTTypeImage, nil];
+            [self presentViewController:pickerController animated:YES completion:^{
+                //code
+            }];
+
             break;
         }
     }
+}
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if([mediaType isEqualToString:(NSString*)kUTTypeImage])
+    {
+        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        [PictureHandler gamePictureByImageOrDefault:image];
+        imgview.image = image;
+    }
+    [picker dismissViewControllerAnimated:YES completion:^{
+        //code
+    }];
 }
 - (void)didReceiveMemoryWarning
 {

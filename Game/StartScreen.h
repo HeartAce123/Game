@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PictureBoard.h"
-@interface StartScreen : UIViewController
+@interface StartScreen : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) PictureBoard* game;
 -(void) buttonClick: (id)sender;
 @end

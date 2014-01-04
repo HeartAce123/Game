@@ -11,7 +11,6 @@
 #import "MZTimerLabel.h"
 @interface PictureBoard : NSObject <UIAlertViewDelegate>
 @property (strong, nonatomic) NSMutableArray* cellArray;
-@property (strong, nonatomic) NSMutableArray* imgArray;
 @property (strong, nonatomic) MZTimerLabel* timer;
 @property int level;
 -(id)initWithLevel: (int)lvl;
