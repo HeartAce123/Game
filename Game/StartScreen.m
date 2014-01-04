@@ -19,6 +19,7 @@ UIButton* start;
 UIButton* level;
 UIButton* chooser;
 UIImageView* imgview;
+UIImageView* view;
 int lvl = 1;
 bool isIntialize = false;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,6 +39,8 @@ bool isIntialize = false;
 }
 -(void) initMenu
 {
+    view = [[UIImageView alloc] initWithFrame:CGRectMake(9, 140, 305, 305)];
+    view.image = [PictureHandler gamePictureByImageOrDefault:nil];
     start = [[UIButton alloc] initWithFrame:CGRectMake(20, 450, 100, 30)];
     start.tag = 0;
     level = [[UIButton alloc] initWithFrame:CGRectMake(170, 450, 150, 30)];
@@ -46,6 +49,10 @@ bool isIntialize = false;
     chooser.tag = 2;
     imgview = [[UIImageView alloc] initWithFrame:CGRectMake(180, 480, 50, 50)];
     imgview.image = [PictureHandler gamePictureByImageOrDefault:nil];
+    [imgview setUserInteractionEnabled:YES];
+    UILongPressGestureRecognizer* recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(holdAction:)];
+    recognizer.minimumPressDuration = 0.01;
+    [imgview addGestureRecognizer:recognizer];
     [start setTitle:@"New Game" forState:UIControlStateNormal];
     [start setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
@@ -63,6 +70,42 @@ bool isIntialize = false;
     [self.view addSubview:chooser];
     [self.view addSubview:imgview];
 }
+-(void) holdAction:(UILongPressGestureRecognizer *)recognizer
+{
+    if(recognizer.state == UIGestureRecognizerStateBegan)
+    {
+        [self.view addSubview:view];
+    }
+    else if(recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        [view removeFromSuperview];
+    }
+}
+-(void) clearScreen
+{
+    for(PictureCell* cell in self.game.cellArray)
+    {
+        [cell removeFromSuperview];
+    }
+    [self.game.cellArray removeAllObjects];
+    [self.game.timer removeFromSuperview];
+}
+-(void) initGame
+{
+    if(isIntialize)
+    {
+        [self clearScreen];
+    }
+    self.game = [[PictureBoard alloc] initWithLevel:lvl + 3];
+    for(PictureCell* cell in self.game.cellArray)
+    {
+        [self.view addSubview:cell];
+    }
+    [self.view addSubview:self.game.timer];
+    isIntialize = true;
+    [self.game.timer start];
+
+}
 -(void) buttonClick: (id)sender
 {
     UIButton* button = (UIButton*) sender;
@@ -70,23 +113,7 @@ bool isIntialize = false;
     {
         case 0:
         {
-            if(isIntialize)
-            {
-                for(PictureCell* cell in self.game.cellArray)
-                {
-                    [cell removeFromSuperview];
-                }
-                [self.game.cellArray removeAllObjects];
-                [self.game.timer removeFromSuperview];
-            }
-            self.game = [[PictureBoard alloc] initWithLevel:lvl + 3];
-            for(PictureCell* cell in self.game.cellArray)
-            {
-                [self.view addSubview:cell];
-            }
-            [self.view addSubview:self.game.timer];
-            isIntialize = true;
-            [self.game.timer start];
+            [self initGame];
             break;
         }
         case 1:
@@ -135,9 +162,10 @@ bool isIntialize = false;
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         [PictureHandler gamePictureByImageOrDefault:image];
         imgview.image = image;
+        view.image = image;
     }
     [picker dismissViewControllerAnimated:YES completion:^{
-        //code
+        [self initGame];
     }];
 }
 - (void)didReceiveMemoryWarning

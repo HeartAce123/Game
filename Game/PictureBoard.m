@@ -22,7 +22,6 @@
     self.timer.textColor= [UIColor greenColor];
     NSMutableArray *array = [self generateArray];
     self.cellArray = [[NSMutableArray alloc] init];
-    //[self makeImageArrayByLevel:lvl];
     [PictureHandler createPieceArrayBy:[PictureHandler gamePictureByImageOrDefault:nil] andLevel:lvl];
     for(int i = 0;i < count;i++)
     {
@@ -151,7 +150,7 @@
     }
     PictureCell* cell = (PictureCell*)[self.cellArray lastObject];
     [cell setBackgroundImage:cell.image forState:UIControlStateNormal];
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"You Won!!" message:[@"Your record: " stringByAppendingString:record] delegate:self cancelButtonTitle:nil otherButtonTitles:@"Play again", @"Make it harder!", @"No way", nil];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"You Won!!" message:[@"Your record: " stringByAppendingString:record] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 }
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -34,12 +34,12 @@
 +(UIImage*)resizePicture:(UIImage *)image
 {
     //resize image to desired size
-//    CGSize size = CGSizeMake(500, 500);
-//    UIGraphicsBeginImageContext(size);
-//    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-//    [image drawInRect:rect];
-//    image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
+    CGSize size = CGSizeMake(500, 500);
+    UIGraphicsBeginImageContext(size);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    [image drawInRect:rect];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return image;
 }
 
