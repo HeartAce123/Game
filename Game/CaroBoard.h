@@ -1,19 +1,21 @@
 //
-//  PictureBoard.h
-//  SimpleGames
+//  CaroBoard.h
+//  Game
 //
-//  Created by LieuHaiDang on 1/2/14.
+//  Created by LieuHaiDang on 1/8/14.
 //  Copyright (c) 2014 LieuHaiDang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "PictureCell.h"
 #import "MZTimerLabel.h"
-@interface PictureBoard : NSObject <UIAlertViewDelegate>
+#import "Cell.h"
+#import "GameState.h"
+@interface CaroBoard : NSObject
 @property (strong, nonatomic) NSMutableArray* cellArray;
 @property (strong, nonatomic) MZTimerLabel* timer;
+@property GameState gameState;
+@property Seed currentPlayer;
 @property int level;
--(id)initWithLevel: (int)lvl;
--(void)cellClick: (id)sender;
--(UIView*) boardGame;
+- (void)cellClick: (id)sender;
+- (id)initWithLevel: (int)lvl;
 @end

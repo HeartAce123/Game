@@ -29,6 +29,14 @@
 		9E586D8918773ADC0073ECE7 /* PictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8718773ADC0073ECE7 /* PictureCell.m */; };
 		9E586D8D18773AF00073ECE7 /* StartScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E586D8B18773AF00073ECE7 /* StartScreen.m */; };
 		9E586D8E18773AF00073ECE7 /* StartScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E586D8C18773AF00073ECE7 /* StartScreen.xib */; };
+		9ED09E0E1881133D0070D4D6 /* PlayScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED09E0C1881133D0070D4D6 /* PlayScreen.m */; };
+		9ED09E0F1881133D0070D4D6 /* PlayScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED09E0D1881133D0070D4D6 /* PlayScreen.xib */; };
+		9ED09E1218811E3A0070D4D6 /* BotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED09E1118811E3A0070D4D6 /* BotController.m */; };
+		9EFD85F5187D66C400718AD6 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFD85F4187D66C400718AD6 /* Cell.m */; };
+		9EFD85F9187D67E300718AD6 /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFD85F6187D67E300718AD6 /* Circle.png */; };
+		9EFD85FA187D67E300718AD6 /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFD85F7187D67E300718AD6 /* Cross.png */; };
+		9EFD85FB187D67E300718AD6 /* Empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFD85F8187D67E300718AD6 /* Empty.png */; };
+		9EFD85FE187D693E00718AD6 /* CaroBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFD85FD187D693E00718AD6 /* CaroBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +80,20 @@
 		9E586D8A18773AF00073ECE7 /* StartScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScreen.h; sourceTree = "<group>"; };
 		9E586D8B18773AF00073ECE7 /* StartScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScreen.m; sourceTree = "<group>"; };
 		9E586D8C18773AF00073ECE7 /* StartScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartScreen.xib; sourceTree = "<group>"; };
+		9ED09E0B1881133D0070D4D6 /* PlayScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayScreen.h; sourceTree = "<group>"; };
+		9ED09E0C1881133D0070D4D6 /* PlayScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayScreen.m; sourceTree = "<group>"; };
+		9ED09E0D1881133D0070D4D6 /* PlayScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayScreen.xib; sourceTree = "<group>"; };
+		9ED09E1018811E3A0070D4D6 /* BotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotController.h; sourceTree = "<group>"; };
+		9ED09E1118811E3A0070D4D6 /* BotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotController.m; sourceTree = "<group>"; };
+		9EFD85EE187D641100718AD6 /* Seed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Seed.h; sourceTree = "<group>"; };
+		9EFD85EF187D647500718AD6 /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		9EFD85F3187D66C400718AD6 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		9EFD85F4187D66C400718AD6 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		9EFD85F6187D67E300718AD6 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
+		9EFD85F7187D67E300718AD6 /* Cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cross.png; sourceTree = "<group>"; };
+		9EFD85F8187D67E300718AD6 /* Empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Empty.png; sourceTree = "<group>"; };
+		9EFD85FC187D693E00718AD6 /* CaroBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaroBoard.h; sourceTree = "<group>"; };
+		9EFD85FD187D693E00718AD6 /* CaroBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaroBoard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E0B8450187840C700E79E0D /* GeneralUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				9E0B844A187797EC00E79E0D /* PictureHandler.h */,
+				9E0B844B187797EC00E79E0D /* PictureHandler.m */,
+			);
+			name = GeneralUtilities;
+			sourceTree = "<group>";
+		};
 		9E586D3B18773A6E0073ECE7 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +165,8 @@
 		9E586D4F18773A6E0073ECE7 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				9E86C577187BEDCF0072AC7A /* Caro */,
+				9E0B8450187840C700E79E0D /* GeneralUtilities */,
 				9E586D7E18773A8F0073ECE7 /* PicturePuzzle */,
 				9E586D7D18773A850073ECE7 /* TestImg */,
 				9E586D7C18773A790073ECE7 /* Third Parties */,
@@ -187,6 +220,9 @@
 		9E586D7D18773A850073ECE7 /* TestImg */ = {
 			isa = PBXGroup;
 			children = (
+				9EFD85F6187D67E300718AD6 /* Circle.png */,
+				9EFD85F7187D67E300718AD6 /* Cross.png */,
+				9EFD85F8187D67E300718AD6 /* Empty.png */,
 				9E586D8218773AC30073ECE7 /* testImg.jpg */,
 			);
 			name = TestImg;
@@ -202,10 +238,26 @@
 				9E586D8518773ADC0073ECE7 /* PictureBoard.m */,
 				9E586D8618773ADC0073ECE7 /* PictureCell.h */,
 				9E586D8718773ADC0073ECE7 /* PictureCell.m */,
-				9E0B844A187797EC00E79E0D /* PictureHandler.h */,
-				9E0B844B187797EC00E79E0D /* PictureHandler.m */,
 			);
 			name = PicturePuzzle;
+			sourceTree = "<group>";
+		};
+		9E86C577187BEDCF0072AC7A /* Caro */ = {
+			isa = PBXGroup;
+			children = (
+				9EFD85EE187D641100718AD6 /* Seed.h */,
+				9EFD85EF187D647500718AD6 /* GameState.h */,
+				9EFD85F3187D66C400718AD6 /* Cell.h */,
+				9EFD85F4187D66C400718AD6 /* Cell.m */,
+				9EFD85FC187D693E00718AD6 /* CaroBoard.h */,
+				9EFD85FD187D693E00718AD6 /* CaroBoard.m */,
+				9ED09E0B1881133D0070D4D6 /* PlayScreen.h */,
+				9ED09E0C1881133D0070D4D6 /* PlayScreen.m */,
+				9ED09E0D1881133D0070D4D6 /* PlayScreen.xib */,
+				9ED09E1018811E3A0070D4D6 /* BotController.h */,
+				9ED09E1118811E3A0070D4D6 /* BotController.m */,
+			);
+			name = Caro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,9 +335,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFD85FB187D67E300718AD6 /* Empty.png in Resources */,
 				9E586D8318773AC30073ECE7 /* testImg.jpg in Resources */,
+				9EFD85F9187D67E300718AD6 /* Circle.png in Resources */,
 				9E586D5418773A6E0073ECE7 /* InfoPlist.strings in Resources */,
 				9E586D8E18773AF00073ECE7 /* StartScreen.xib in Resources */,
+				9ED09E0F1881133D0070D4D6 /* PlayScreen.xib in Resources */,
+				9EFD85FA187D67E300718AD6 /* Cross.png in Resources */,
 				9E586D5F18773A6E0073ECE7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,14 +361,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ED09E0E1881133D0070D4D6 /* PlayScreen.m in Sources */,
 				9E586D8918773ADC0073ECE7 /* PictureCell.m in Sources */,
 				9E586D5A18773A6E0073ECE7 /* AppDelegate.m in Sources */,
 				9E586D8818773ADC0073ECE7 /* PictureBoard.m in Sources */,
+				9EFD85FE187D693E00718AD6 /* CaroBoard.m in Sources */,
 				9E586D8118773AB50073ECE7 /* MZTimerLabel.m in Sources */,
 				9E586D5D18773A6E0073ECE7 /* Game.xcdatamodeld in Sources */,
 				9E0B844C187797EC00E79E0D /* PictureHandler.m in Sources */,
 				9E586D8D18773AF00073ECE7 /* StartScreen.m in Sources */,
 				9E586D5618773A6E0073ECE7 /* main.m in Sources */,
+				9EFD85F5187D66C400718AD6 /* Cell.m in Sources */,
+				9ED09E1218811E3A0070D4D6 /* BotController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

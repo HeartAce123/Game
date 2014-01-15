@@ -10,6 +10,7 @@
 #import "PictureBoard.h"
 @interface StartScreen : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) PictureBoard* game;
+@property (strong, nonatomic) UIView* board;
 -(void) buttonClick: (id)sender;
 -(void) holdAction: (UILongPressGestureRecognizer*) recognizer;
 @end

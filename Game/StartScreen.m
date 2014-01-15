@@ -39,28 +39,32 @@ bool isIntialize = false;
 }
 -(void) initMenu
 {
-    view = [[UIImageView alloc] initWithFrame:CGRectMake(9, 140, 305, 305)];
+    [self initGame];
+    view = [[UIImageView alloc] initWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y, self.board.frame.size.width, self.board.frame.size.height)];
     view.image = [PictureHandler gamePictureByImageOrDefault:nil];
-    start = [[UIButton alloc] initWithFrame:CGRectMake(20, 450, 100, 30)];
+    start = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y + self.board.frame.size.height + 30, 130, 30)];
+    [start setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     start.tag = 0;
-    level = [[UIButton alloc] initWithFrame:CGRectMake(170, 450, 150, 30)];
+    level = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x + self.board.frame.size.width - 130, self.board.frame.origin.y  + self.board.frame.size.height + 30, 130, 30)];
+    [level setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     level.tag = 1;
-    chooser = [[UIButton alloc] initWithFrame:CGRectMake(10, 480, 170, 30)];
+    chooser = [[UIButton alloc] initWithFrame:CGRectMake(start.frame.origin.x, start.frame.origin.y + start.frame.size.height + 10, 130, 30)];
+    [chooser setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     chooser.tag = 2;
-    imgview = [[UIImageView alloc] initWithFrame:CGRectMake(180, 480, 50, 50)];
+    imgview = [[UIImageView alloc] initWithFrame:CGRectMake(level.frame.origin.x, chooser.frame.origin.y, 50, 50)];
     imgview.image = [PictureHandler gamePictureByImageOrDefault:nil];
     [imgview setUserInteractionEnabled:YES];
     UILongPressGestureRecognizer* recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(holdAction:)];
     recognizer.minimumPressDuration = 0.01;
     [imgview addGestureRecognizer:recognizer];
     [start setTitle:@"New Game" forState:UIControlStateNormal];
-    [start setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    //[start setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level setTitle:@"Level: Normal" forState:UIControlStateNormal];
     [level setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-    [level setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    //[level setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [chooser setTitle:@"Choose picture" forState:UIControlStateNormal];
-    [chooser setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    //[chooser setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [chooser setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [start addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -83,10 +87,11 @@ bool isIntialize = false;
 }
 -(void) clearScreen
 {
-    for(PictureCell* cell in self.game.cellArray)
-    {
-        [cell removeFromSuperview];
-    }
+//    for(PictureCell* cell in self.game.cellArray)
+//    {
+//        [cell removeFromSuperview];
+//    }
+    [self.board removeFromSuperview];
     [self.game.cellArray removeAllObjects];
     [self.game.timer removeFromSuperview];
 }
@@ -97,12 +102,20 @@ bool isIntialize = false;
         [self clearScreen];
     }
     self.game = [[PictureBoard alloc] initWithLevel:lvl + 3];
-    for(PictureCell* cell in self.game.cellArray)
-    {
-        [self.view addSubview:cell];
-    }
+//    for(PictureCell* cell in self.game.cellArray)
+//    {
+//        [self.view addSubview:cell];
+//    }
+    self.board = [[UIView alloc] init];
+    self.board = [self.game boardGame];
+    self.board.center = [self.view convertPoint:self.view.center fromView:self.view];
+    self.board.frame = CGRectMake(self.board.frame.origin.x, 120, self.board.frame.size.width, self.board.frame.size.height);
+    self.game.timer.center = [self.view convertPoint:self.view.center fromView:self.view];
+    self.game.timer.frame = CGRectMake(self.game.timer.frame.origin.x,self.board.frame.origin.y - 40 , self.game.timer.frame.size.width, self.game.timer.frame.size.height);
+    [self.view addSubview:self.board];
     [self.view addSubview:self.game.timer];
     isIntialize = true;
+    view.frame = CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y, self.board.frame.size.width, self.board.frame.size.height);
     [self.game.timer start];
 
 }

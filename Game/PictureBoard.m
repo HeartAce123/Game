@@ -8,26 +8,27 @@
 
 #import "PictureBoard.h"
 #import "PictureHandler.h"
+#import "Cell.h"
 #include <stdlib.h>
 @implementation PictureBoard
 -(id)initWithLevel:(int)lvl
 {
     self.level = lvl;
     int count = lvl*lvl;
-    int x = 9;
-    int y = 140;
+    int x = 0;
+    int y = 0;
     self.level = lvl;
-    self.timer = [[MZTimerLabel alloc] initWithFrame:CGRectMake(115, 80, 100, 30)];
+    self.timer = [[MZTimerLabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     self.timer.font = [UIFont systemFontOfSize:25];
-    self.timer.textColor= [UIColor greenColor];
+    self.timer.textColor= [UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0];
     NSMutableArray *array = [self generateArray];
     self.cellArray = [[NSMutableArray alloc] init];
     [PictureHandler createPieceArrayBy:[PictureHandler gamePictureByImageOrDefault:nil] andLevel:lvl];
     for(int i = 0;i < count;i++)
     {
         int index = ((NSNumber*)[array objectAtIndex:i]).intValue;
-        x=9+(300/lvl)*(i%lvl)+(i%lvl);
-        y=140+(300/lvl)*(i/lvl)+(i/lvl);
+        x=(300/lvl)*(i%lvl)+(i%lvl);
+        y=(300/lvl)*(i/lvl)+(i/lvl);
         PictureCell* cell = [[PictureCell alloc] initWithIndex:i withImage: (UIImage*)[[PictureHandler pieceArray] objectAtIndex:index] andX:x andY:y andLevel:lvl andRealIndex:index];
         [cell addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
         if(i == count - 1)
@@ -174,5 +175,14 @@
             break;
         }
     }
+}
+- (UIView*) boardGame
+{
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300 + self.level - 1, 300 + self.level - 1)];
+    for(Cell* cell in self.cellArray)
+    {
+        [view addSubview:cell];
+    }
+    return view;
 }
 @end
