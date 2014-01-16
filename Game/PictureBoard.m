@@ -38,6 +38,8 @@
         }
         [self.cellArray addObject:cell];
     }
+    self.highScore = [[DataHandler alloc] initWithCoder];
+    [self.highScore loadScoreOfGame:@"PicturePuzzle" withLevel:self.level];
     return self;
 }
 
@@ -145,13 +147,22 @@
 {
     [self.timer pause];
     NSString* record = self.timer.text;
+    BOOL isBreak = [self.highScore updateScoreList:record inGame:@"PicturePuzzle" withLevel:self.level];
     for(PictureCell* cell in self.cellArray)
     {
         [cell setUserInteractionEnabled:NO];
     }
     PictureCell* cell = (PictureCell*)[self.cellArray lastObject];
     [cell setBackgroundImage:cell.image forState:UIControlStateNormal];
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"You Won!!" message:[@"Your record: " stringByAppendingString:record] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView* alert;
+    if(!isBreak)
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"You Won!!" message:[@"Your record: " stringByAppendingString:record] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }
+    else
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"You got into highscore board!!" message:[@"Your record: " stringByAppendingString:record] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }
     [alert show];
 }
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

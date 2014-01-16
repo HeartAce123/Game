@@ -58,13 +58,10 @@ bool isIntialize = false;
     recognizer.minimumPressDuration = 0.01;
     [imgview addGestureRecognizer:recognizer];
     [start setTitle:@"New Game" forState:UIControlStateNormal];
-    //[start setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level setTitle:@"Level: Normal" forState:UIControlStateNormal];
     [level setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-    //[level setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [chooser setTitle:@"Choose picture" forState:UIControlStateNormal];
-    //[chooser setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [chooser setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [start addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -87,10 +84,6 @@ bool isIntialize = false;
 }
 -(void) clearScreen
 {
-//    for(PictureCell* cell in self.game.cellArray)
-//    {
-//        [cell removeFromSuperview];
-//    }
     [self.board removeFromSuperview];
     [self.game.cellArray removeAllObjects];
     [self.game.timer removeFromSuperview];
@@ -102,10 +95,6 @@ bool isIntialize = false;
         [self clearScreen];
     }
     self.game = [[PictureBoard alloc] initWithLevel:lvl + 3];
-//    for(PictureCell* cell in self.game.cellArray)
-//    {
-//        [self.view addSubview:cell];
-//    }
     self.board = [[UIView alloc] init];
     self.board = [self.game boardGame];
     self.board.center = [self.view convertPoint:self.view.center fromView:self.view];
@@ -117,7 +106,6 @@ bool isIntialize = false;
     isIntialize = true;
     view.frame = CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y, self.board.frame.size.width, self.board.frame.size.height);
     [self.game.timer start];
-
 }
 -(void) buttonClick: (id)sender
 {
