@@ -8,7 +8,7 @@
 
 #import "BotController.h"
 #import "Seed.h"
-#import "Cell.h"
+#import "CaroCell.h"
 @implementation BotController
 - (void) evalScoreBoardWithPlayer: (Seed)player inCurrentBoard: (NSMutableArray*) board
 {
@@ -25,7 +25,7 @@
     }
     self.currentBoard = board;
     int eOpp = 0, ePlayer = 0;
-    for(Cell* cell in self.currentBoard)
+    for(CaroCell* cell in self.currentBoard)
     {
         cell.score = 0;
     }
@@ -37,7 +37,7 @@
             ePlayer = 0;
             for(int i = 0; i < 5; i++)
             {
-                Cell* cell = (Cell*)[self.currentBoard objectAtIndex:row*10+col+i];
+                CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:row*10+col+i];
                 if(cell.contain == opp)
                     eOpp++;
                 if(cell.contain == player)
@@ -47,7 +47,7 @@
             {
                 for(int i = 0; i < 5; i++)
                 {
-                    Cell* cell = (Cell*)[self.currentBoard objectAtIndex:row*10+col+i];
+                    CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:row*10+col+i];
                     if(cell.contain == Empty)
                     {
                         if(ePlayer == 0)
@@ -76,7 +76,7 @@
             ePlayer = 0;
             for(int i = 0; i < 5; i++)
             {
-                Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row+i)*10+col];
+                CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row+i)*10+col];
                 if(cell.contain == opp)
                     eOpp++;
                 if(cell.contain == player)
@@ -86,7 +86,7 @@
             {
                 for(int i = 0; i < 5; i++)
                 {
-                    Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row+i)*10+col];
+                    CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row+i)*10+col];
                     if(cell.contain == Empty)
                     {
                         if(ePlayer == 0)
@@ -115,7 +115,7 @@
             ePlayer = 0;
             for(int i = 0; i < 5; i++)
             {
-                Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row+i)*10+col+i];
+                CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row+i)*10+col+i];
                 if(cell.contain == opp)
                     eOpp++;
                 if(cell.contain == player)
@@ -125,7 +125,7 @@
             {
                 for(int i = 0; i < 5; i++)
                 {
-                    Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row+i)*10+col+i];
+                    CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row+i)*10+col+i];
                     if(cell.contain == Empty)
                     {
                         if(ePlayer == 0)
@@ -154,7 +154,7 @@
             ePlayer = 0;
             for(int i = 0; i < 5; i++)
             {
-                Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row-i)*10+col+i];
+                CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row-i)*10+col+i];
                 if(cell.contain == opp)
                     eOpp++;
                 if(cell.contain == player)
@@ -164,7 +164,7 @@
             {
                 for(int i = 0; i < 5; i++)
                 {
-                    Cell* cell = (Cell*)[self.currentBoard objectAtIndex:(row-i)*10+col+i];
+                    CaroCell* cell = (CaroCell*)[self.currentBoard objectAtIndex:(row-i)*10+col+i];
                     if(cell.contain == Empty)
                     {
                         if(ePlayer == 0)

@@ -19,7 +19,7 @@ int boardSize = 10;
     {
         x=9+(300/boardSize)*(i%boardSize)+(i%boardSize);
         y=140+(300/boardSize)*(i/boardSize)+(i/boardSize);
-        Cell* cell = [[Cell alloc] initWithIndex:i andX:x andY:y];
+        CaroCell* cell = [[CaroCell alloc] initWithIndex:i andX:x andY:y];
         [cell addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.cellArray addObject:cell];
     }
@@ -29,7 +29,7 @@ int boardSize = 10;
 
 - (void) cellClick:(id)sender
 {
-    Cell* cell = (Cell*)sender;
+    CaroCell* cell = (CaroCell*)sender;
     int index = [self.cellArray indexOfObject:cell];
     cell.contain = self.currentPlayer;
     if(self.currentPlayer == Circle)
@@ -47,7 +47,7 @@ int boardSize = 10;
 {
     if([self isStopPlaying:index])
     {
-        for(Cell* cell in self.cellArray)
+        for(CaroCell* cell in self.cellArray)
         {
             [cell setUserInteractionEnabled:NO];
         }
@@ -64,7 +64,7 @@ int boardSize = 10;
 
 - (void) makeNewGame: (int)lvl
 {
-    for(Cell* cell in self.cellArray)
+    for(CaroCell* cell in self.cellArray)
     {
         cell.contain = Empty;
         [cell setBackgroundImage:[UIImage imageNamed:@"Empty.png"] forState:UIControlStateNormal];
@@ -94,7 +94,7 @@ int boardSize = 10;
 
 - (BOOL) isDraw
 {
-    for(Cell* cell in self.cellArray)
+    for(CaroCell* cell in self.cellArray)
     {
         if(cell.state != Empty)
         {
@@ -122,7 +122,7 @@ int boardSize = 10;
     while (col < boardSize - 1 && loop < 5)
     {
         col++;
-        Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+        CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
         if(cell.contain == self.currentPlayer)
             count++;
         else
@@ -138,7 +138,7 @@ int boardSize = 10;
         while (col > 0 && loop < 5)
         {
             col--;
-            Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+            CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
             if(cell.contain == self.currentPlayer)
                 count++;
             else
@@ -160,7 +160,7 @@ int boardSize = 10;
     while (row < boardSize - 1 && loop < 5)
     {
         row++;
-        Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+        CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
         if(cell.contain == self.currentPlayer)
             count++;
         else
@@ -176,7 +176,7 @@ int boardSize = 10;
         while (row > 0 && loop < 5)
         {
             row--;
-            Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+            CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
             if(cell.contain == self.currentPlayer)
                 count++;
             else
@@ -198,7 +198,7 @@ int boardSize = 10;
     {
         col++;
         row++;
-        Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+        CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
         if(cell.contain == self.currentPlayer)
             count++;
         else
@@ -217,7 +217,7 @@ int boardSize = 10;
         {
             col--;
             row--;
-            Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+            CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
             if(cell.contain == self.currentPlayer)
                 count++;
             else
@@ -239,7 +239,7 @@ int boardSize = 10;
     {
         col++;
         row--;
-        Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+        CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
         if(cell.contain == self.currentPlayer)
             count++;
         else
@@ -258,7 +258,7 @@ int boardSize = 10;
         {
             col--;
             row++;
-            Cell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
+            CaroCell* cell = [self.cellArray objectAtIndex:row*boardSize+col];
             if(cell.contain == self.currentPlayer)
                 count++;
             else

@@ -1,17 +1,23 @@
 //
 //  Cell.h
-//  Game
+//  Minesweeper
 //
-//  Created by LieuHaiDang on 1/8/14.
-//  Copyright (c) 2014 LieuHaiDang. All rights reserved.
+//  Created by DucNM-Mac on 1/2/14.
+//  Copyright (c) 2014 DucNM-Mac. All rights reserved.
 //
 
+//#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Seed.h"
+#import "CellState.h"
+
 @interface Cell : UIButton
-@property Seed contain;
+
 @property int index;
-@property int score;
-- (id)initWithIndex: (int)index andX: (int)x andY: (int)y;
-- (void)cellClick: (id)sender;
+@property bool isMine;
+@property CellState cellState;
+@property (strong, nonatomic) NSMutableArray *neighbourCells;
+
+-(id)initWithIndex:(int) index andMine:(bool)mine andFrame:(CGRect)frame;
+-(void) setMine:(bool)mine;
+-(void) setState:(CellState)state;
 @end

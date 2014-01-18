@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MZTimerLabel.h"
-#import "Cell.h"
+#import "CaroCell.h"
 #import "GameState.h"
 @interface CaroBoard : NSObject
 @property (strong, nonatomic) NSMutableArray* cellArray;

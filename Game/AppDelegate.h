@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StartScreen.h"
 #import "PlayScreen.h"
+#import "StartView.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) UINavigationController* navController;
 @property (strong, nonatomic) StartScreen* main;
 @property (strong, nonatomic) PlayScreen* main2;
+@property (strong, nonatomic) StartView* startView;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

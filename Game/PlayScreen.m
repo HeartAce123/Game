@@ -32,7 +32,7 @@
 }
 - (void) initGameScreen
 {
-    for(Cell* cell in self.board.cellArray)
+    for(CaroCell* cell in self.board.cellArray)
     {
         [self.view addSubview:cell];
     }

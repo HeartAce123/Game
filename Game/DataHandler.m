@@ -30,9 +30,15 @@
     Score* score2 = [NSEntityDescription insertNewObjectForEntityForName:@"Score" inManagedObjectContext:self.context];
     score2.time = @"01:00:00";
     score2.level = lvl;
+    Score* score3 = [NSEntityDescription insertNewObjectForEntityForName:@"Score" inManagedObjectContext:self.context];
+    score3.time = @"01:00:00";
+    score3.level = lvl;
+    Score* score4 = [NSEntityDescription insertNewObjectForEntityForName:@"Score" inManagedObjectContext:self.context];
+    score4.time = @"01:00:00";
+    score4.level = lvl;
     Game* category = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:self.context];
     category.gameName = game;
-    NSSet* set = [NSSet setWithObjects:score, score1, score2,nil];
+    NSSet* set = [NSSet setWithObjects:score, score1, score2, score3, score4, nil];
     [category addContain:set];
     NSError* error;
     [self.context save:&error];
@@ -153,9 +159,34 @@
         [self listWithDefaultValue:level andGame:game];
         self.scoreList = (NSMutableArray*)[self.context executeFetchRequest:request error:&error];
     }
-//    NSLog(((Score*)[self.scoreList objectAtIndex:0]).time);
-//    NSLog(((Score*)[self.scoreList objectAtIndex:1]).time);
-//    NSLog(((Score*)[self.scoreList objectAtIndex:2]).time);
+    self.scoreList = [self sortedScoreList];
+//   for(Score* score in self.scoreList)
+//   {
+//       NSLog(score.time);
+//   }
 }
 
+-(Score*)minScore: (NSMutableArray*)listScore
+{
+    Score* min = (Score*)[listScore objectAtIndex:0];
+    for(Score* score in listScore)
+    {
+        if([self scoreWithIntFormat:score.time] < [self scoreWithIntFormat:min.time])
+            min = score;
+    }
+    return min;
+}
+
+-(NSMutableArray*)sortedScoreList
+{
+    NSMutableArray* tempList = [[NSMutableArray alloc] initWithArray:self.scoreList];
+    NSMutableArray* sortedList = [[NSMutableArray alloc] init];
+    while([tempList count] > 0)
+    {
+        Score* score = [self minScore:tempList];
+        [sortedList addObject:score];
+        [tempList removeObject:score];
+    }
+    return sortedList;
+}
 @end

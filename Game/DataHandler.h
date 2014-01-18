@@ -14,4 +14,5 @@
 -(id) initWithCoder;
 -(void) loadScoreOfGame: (NSString*)game withLevel: (int)lvl;
 -(BOOL) updateScoreList: (NSString*)score inGame: (NSString*)game withLevel: (int)lvl;
+-(NSMutableArray*) sortedScoreList;
 @end

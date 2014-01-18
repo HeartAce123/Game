@@ -10,6 +10,7 @@
 #import "PictureBoard.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "PictureHandler.h"
+#import "KHFlatButton.h"
 @interface StartScreen ()
 
 @end
@@ -40,16 +41,21 @@ bool isIntialize = false;
 -(void) initMenu
 {
     [self initGame];
+    [self.view setBackgroundColor:[UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:150.0/255.0 alpha:1.0]];
+    [[self.navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:150.0/255.0 alpha:1.0]];
     view = [[UIImageView alloc] initWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y, self.board.frame.size.width, self.board.frame.size.height)];
     view.image = [PictureHandler gamePictureByImageOrDefault:nil];
-    start = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y + self.board.frame.size.height + 30, 130, 30)];
-    [start setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
+    start = [KHFlatButton buttonWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y + self.board.frame.size.height + 30, 130, 40) withTitle:@"New Game" backgroundColor:[UIColor colorWithRed:120.0/255.0 green:190.0/255.0 blue:50.0/255.0 alpha:1.0]];
+    //start = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x, self.board.frame.origin.y + self.board.frame.size.height + 30, 130, 30)];
+    //[start setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     start.tag = 0;
-    level = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x + self.board.frame.size.width - 130, self.board.frame.origin.y  + self.board.frame.size.height + 30, 130, 30)];
-    [level setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
+    level = [KHFlatButton buttonWithFrame:CGRectMake(self.board.frame.origin.x + self.board.frame.size.width - 130, self.board.frame.origin.y  + self.board.frame.size.height + 30, 130, 40) withTitle:@"Normal" backgroundColor:[UIColor colorWithRed:120.0/255.0 green:190.0/255.0 blue:50.0/255.0 alpha:1.0]];
+    //level = [[UIButton alloc] initWithFrame:CGRectMake(self.board.frame.origin.x + self.board.frame.size.width - 130, self.board.frame.origin.y  + self.board.frame.size.height + 30, 130, 30)];
+    //[level setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     level.tag = 1;
-    chooser = [[UIButton alloc] initWithFrame:CGRectMake(start.frame.origin.x, start.frame.origin.y + start.frame.size.height + 10, 130, 30)];
-    [chooser setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
+    chooser = [KHFlatButton buttonWithFrame:CGRectMake(start.frame.origin.x, start.frame.origin.y + start.frame.size.height + 10, 130, 40) withTitle:@"Picture" backgroundColor:[UIColor colorWithRed:120.0/255.0 green:190.0/255.0 blue:50.0/255.0 alpha:1.0]];
+    //chooser = [[UIButton alloc] initWithFrame:CGRectMake(start.frame.origin.x, start.frame.origin.y + start.frame.size.height + 10, 130, 30)];
+    //[chooser setBackgroundColor:[UIColor colorWithRed:120.0/255 green:190.0/255 blue:50.0/255 alpha:1.0]];
     chooser.tag = 2;
     imgview = [[UIImageView alloc] initWithFrame:CGRectMake(level.frame.origin.x, chooser.frame.origin.y, 50, 50)];
     imgview.image = [PictureHandler gamePictureByImageOrDefault:nil];
@@ -57,12 +63,12 @@ bool isIntialize = false;
     UILongPressGestureRecognizer* recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(holdAction:)];
     recognizer.minimumPressDuration = 0.01;
     [imgview addGestureRecognizer:recognizer];
-    [start setTitle:@"New Game" forState:UIControlStateNormal];
-    [start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-    [level setTitle:@"Level: Normal" forState:UIControlStateNormal];
-    [level setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-    [chooser setTitle:@"Choose picture" forState:UIControlStateNormal];
-    [chooser setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    //[start setTitle:@"New Game" forState:UIControlStateNormal];
+    //[start setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    //[level setTitle:@"Normal" forState:UIControlStateNormal];
+    //[level setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    //[chooser setTitle:@"Picture" forState:UIControlStateNormal];
+    //[chooser setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [level addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [start addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [chooser addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -125,17 +131,17 @@ bool isIntialize = false;
             {
                 case 1:
                 {
-                    [button setTitle:@"Level: Normal" forState:UIControlStateNormal];
+                    [button setTitle:@"Normal" forState:UIControlStateNormal];
                     break;
                 }
                 case 2:
                 {
-                    [button setTitle:@"Level: Hard" forState:UIControlStateNormal];
+                    [button setTitle:@"Hard" forState:UIControlStateNormal];
                     break;
                 }
                 case 0:
                 {
-                    [button setTitle:@"Level: Easy" forState:UIControlStateNormal];
+                    [button setTitle:@"Easy" forState:UIControlStateNormal];
                     break;
                 }
             }

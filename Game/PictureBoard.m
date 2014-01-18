@@ -8,7 +8,6 @@
 
 #import "PictureBoard.h"
 #import "PictureHandler.h"
-#import "Cell.h"
 #include <stdlib.h>
 @implementation PictureBoard
 -(id)initWithLevel:(int)lvl
@@ -190,7 +189,7 @@
 - (UIView*) boardGame
 {
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300 + self.level - 1, 300 + self.level - 1)];
-    for(Cell* cell in self.cellArray)
+    for(PictureCell* cell in self.cellArray)
     {
         [view addSubview:cell];
     }

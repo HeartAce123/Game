@@ -1,9 +1,9 @@
 //
 //  Cell.m
-//  Game
+//  Minesweeper
 //
-//  Created by LieuHaiDang on 1/8/14.
-//  Copyright (c) 2014 LieuHaiDang. All rights reserved.
+//  Created by DucNM-Mac on 1/2/14.
+//  Copyright (c) 2014 DucNM-Mac. All rights reserved.
 //
 
 #import "Cell.h"
@@ -18,26 +18,36 @@
     }
     return self;
 }
-- (id)initWithIndex:(int)index andX:(int)x andY:(int)y
+
+
+-(id)initWithIndex:(int)index andMine:(bool)mine andFrame:(CGRect)frame
 {
-    self = [[Cell alloc] initWithFrame:CGRectMake(x, y, 30, 30)];
+    self = [super initWithFrame:frame];
     self.index = index;
-    self.contain = Empty;
-    [self setBackgroundImage:[UIImage imageNamed:@"Empty.png"] forState:UIControlStateNormal];
-    //[self addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self setMine:mine];
+    self.neighbourCells = [[NSMutableArray alloc]init];
+    [self setState:Hidden];
+//    [self setBackgroundImage:[UIImage imageNamed:@"grass.png"] forState:UIControlStateNormal];
     return self;
 }
-- (void)cellClick:(id)sender
+
+-(void)setMine:(bool)mine
 {
-    
+    self.isMine = mine;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+-(void)setState:(CellState)state
 {
-    // Drawing code
+    self.cellState = state;
+    if (self.cellState == Flag) {
+        [self setBackgroundImage:[UIImage imageNamed:@"flag.png"] forState:UIControlStateNormal];
+    }
+    if (self.cellState == Hidden) {
+        [self setBackgroundImage:[UIImage imageNamed:@"grass.png"] forState:UIControlStateNormal];
+    }
+    if (self.cellState == Reveal) {
+        self.userInteractionEnabled = NO;
+    }
 }
-*/
 
 @end
